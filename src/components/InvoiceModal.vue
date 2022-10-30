@@ -127,6 +127,7 @@ import db from "../firebase/firebaseInit";
 import Loading from "../components/Loading";
 import { mapActions, mapMutations, mapState } from "vuex";
 import { uid } from "uid";
+import { doc, setDoc } from "firebase/firestore"; 
 export default {
   name: "invoiceModal",
   data() {
@@ -248,10 +249,10 @@ export default {
 
       this.calInvoiceTotal();
 
-      const dataBase = db.collection("invoices").doc();
-
-      await dataBase.set({
-        invoiceId: uid(6),
+      let id = uid(6);
+      // Add a new document in collection "cities"
+      await setDoc(doc(db, "invoices", id), {
+        invoiceId: id,
         billerStreetAddress: this.billerStreetAddress,
         billerCity: this.billerCity,
         billerZipCode: this.billerZipCode,
