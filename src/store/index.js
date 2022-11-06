@@ -118,5 +118,5 @@ export default createStore({
       commit("UPDATE_STATUS_TO_PENDING", docId);
     },
   },
-  modules: {},
+  modul0es: {},
 });
