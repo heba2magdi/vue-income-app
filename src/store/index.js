@@ -1,6 +1,12 @@
 import { createStore } from "vuex";
 import db from "../firebase/firebaseInit";
 import { collection, /*addDoc,*/ getDocs } from "firebase/firestore";
+//for delete
+import { doc, updateDoc, deleteField } from "firebase/firestore";
+//for update 
+import { setDoc } from "firebase/firestore";
+
+
 
 export default createStore({
   state: {
@@ -96,16 +102,27 @@ export default createStore({
       commit("SET_CURRENT_INVOICE", routeId);
     },
     async DELETE_INVOICE({ commit }, docId) {
-      const getInvoice = db.collection("invoices").doc(docId);
-      await getInvoice.delete();
+      //const getInvoice = db.collection("invoices").doc(docId);
+      const getInvoice = doc(db, "invoices", docId);
+      //await getInvoice.delete();
+      await updateDoc(getInvoice, {
+        docId: deleteField()
+      });
       commit("DELETE_INVOICE", docId);
     },
+
     async UPDATE_STATUS_TO_PAID({ commit }, docId) {
-      const getInvoice = db.collection("invoices").doc(docId);
-      await getInvoice.update({
+      //const getInvoice = doc(db, "invoices", docId);  //<---
+      // await getInvoice.update({
+      //   invoicePaid: true,
+      //   invoicePending: false,
+      // });
+      //new
+      await setDoc(doc(db, "invoices", docId), {
         invoicePaid: true,
         invoicePending: false,
       });
+      //
       commit("UPDATE_STATUS_TO_PAID", docId);
     },
     async UPDATE_STATUS_TO_PENDING({ commit }, docId) {
