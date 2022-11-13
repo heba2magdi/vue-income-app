@@ -126,8 +126,8 @@ export default createStore({
       commit("UPDATE_STATUS_TO_PAID", docId);
     },
     async UPDATE_STATUS_TO_PENDING({ commit }, docId) {
-      const getInvoice = db.collection("invoices").doc(docId);
-      await getInvoice.update({
+      //const getInvoice = db.collection("invoices").doc(docId);
+      await setDoc(doc(db, "invoices", docId), {
         invoicePaid: false,
         invoicePending: true,
         invoiceDraft: false,
