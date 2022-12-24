@@ -1,6 +1,6 @@
 <template>
   <div v-if="currentInvoice" class="invoice-view container">
-    <router-link class="nav-link flex" :to="{ name: 'Home' }">
+    <router-link class="nav-link flex" :to="{ name: 'Account' }">
       <img src="@/assets/icon-arrow-left.svg" alt="" /> Go Back
     </router-link>
     <!-- Header -->
@@ -127,7 +127,7 @@ export default {
 
     async deleteInvoice(docId) {
       await this.DELETE_INVOICE(docId);
-      this.$router.push({ name: "Home" });
+      this.$router.push({ name: "Account" });
     },
 
     updateStatusToPaid(docId) {

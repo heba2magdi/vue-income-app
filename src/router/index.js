@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Account from "../views/Account.vue";
 import Home from "../views/Home.vue";
-import HomeLogOut from "../views/HomeLogOut.vue";
 import InvoiceView from "../views/InvoiceView.vue";
 import SignIn from "../views/SignIn.vue";
 import Register from "../views/Register.vue";
@@ -8,15 +8,16 @@ import Register from "../views/Register.vue";
 
 const routes = [
   {
+    path: "/Account",
+    name: "Account",
+    component: Account,
+  },
+  {
     path: "/",
     name: "Home",
     component: Home,
   },
-  {
-    path: "/HomeLogOut",
-    name: "HomeLogOut",
-    component: HomeLogOut,
-  },
+
   {
     path: "/invoice/:invoiceId",
     name: "Invoice",

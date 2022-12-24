@@ -6,12 +6,16 @@
   <p v-if="errMsg">{{ errMsg }}</p>
   <p ><button class="button" @click="register">submit</button></p>
   <p ><button  class="button" @click="signInWithGoogle">sign In With Google</button></p>
+  <p class="new">
+    <router-link  :to="{ name: 'Register' }" class="link">
+        New Account?
+    </router-link></p>
     </div>
 </template>
 
 <script setup>
 import{ref} from "vue";
-import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword,GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 import { useRouter } from "vue-router";
 const email=ref("");
 const password=ref("");
@@ -23,7 +27,7 @@ const register=()=>{
     .then((data)=>{
         console.log("you are successfully signed in!");
         console.log(auth.currentUser);
-        router.push('/');
+        router.push('/Account');
         console.log(data);
     })
     .catch((error)=> {
@@ -47,7 +51,17 @@ const register=()=>{
 
 };
 const signInWithGoogle=()=>{
+const provider = new GoogleAuthProvider();
+signInWithPopup(getAuth(),provider)
+.then((result)=>{
+console.log(result.user);
+router.push('/Account');
 
+})
+.catch((error)=>{
+    console.log(error.code);
+        alert(error.message);
+});
 };
 </script>
 
@@ -56,6 +70,16 @@ const signInWithGoogle=()=>{
     background-color: #1e2139;
     margin: auto;
     padding: 50px;
+    border-radius: 20px;
+}
+.new{
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: underline;
+}
+.link{
+    color: #757ebd;
 }
 .header{
     color:white

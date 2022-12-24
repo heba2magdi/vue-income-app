@@ -24,7 +24,7 @@ const register=()=>{
     .then((data)=>{
         console.log("you are successfully registered!");
         console.log(auth.currentUser);
-        router.push('/HomeLogOut');
+        router.push('/Account');
         console.log(data);
     })
     .catch((error)=> {
@@ -39,7 +39,7 @@ const provider = new GoogleAuthProvider();
 signInWithPopup(getAuth(),provider)
 .then((result)=>{
 console.log(result.user);
-router.push('/HomeLogOut');
+router.push('/Account');
 
 })
 .catch((error)=>{
@@ -54,6 +54,8 @@ router.push('/HomeLogOut');
     background-color: #1e2139;
     margin: auto;
     padding: 50px;
+    border-radius: 20px;
+
 }
 .header{
     color:white
