@@ -1,0 +1,19 @@
+{
+  "name": "vue-income",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heba2magdi/vue-income-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heba2magdi/vue-income-app/issues"
+  },
+  "homepage": "https://github.com/heba2magdi/vue-income-app#readme"
+}
