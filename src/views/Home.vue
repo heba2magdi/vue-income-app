@@ -1,4 +1,22 @@
 <template>
+  <router-link :to="{ name: 'SignIn' }" >
+        <img  src="@/assets/pic2.png" alt="">
+
+  </router-link>
+ 
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
+
+<!-- <template>
   <div class="countainer">
     <div class="text">
     <p class="par1">IN TROUBLE MANAGING YOUR BUSINESS INVOICES..?</p>
@@ -83,4 +101,4 @@ color: #7c5dfa;
     /* float: left; */
     margin-top: 100px;
 }
-</style>
+</style> -->
