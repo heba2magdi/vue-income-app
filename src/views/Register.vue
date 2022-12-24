@@ -10,7 +10,7 @@
 
 <script setup>
 import{ref} from "vue";
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+import {getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 import { useRouter } from "vue-router";
 const email=ref("");
 const password=ref("");
@@ -21,7 +21,7 @@ const register=()=>{
     .then((data)=>{
         console.log("you are successfully registered!");
         console.log(auth.currentUser);
-        router.push('/');
+        router.push('/HomeLogOut');
         console.log(data);
     })
     .catch((error)=> {
@@ -32,7 +32,17 @@ const register=()=>{
 
 };
 const signInWithGoogle=()=>{
+const provider = new GoogleAuthProvider();
+signInWithPopup(getAuth(),provider)
+.then((result)=>{
+console.log(result.user);
+router.push('/HomeLogOut');
 
+})
+.catch((error)=>{
+    console.log(error.code);
+        alert(error.message);
+});
 };
 </script>
 

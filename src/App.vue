@@ -17,11 +17,12 @@
   </div>
 </template>
 
-<script>
+<script >
 import { mapState, mapActions } from "vuex";
 import Navigation from "./components/Navigation";
 import InvoiceModal from "./components/InvoiceModal";
 import Modal from "./components/Modal";
+
 export default {
   data() {
     return {
