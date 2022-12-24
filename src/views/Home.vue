@@ -25,6 +25,20 @@
           </div>
           <span>New Invoice</span>
         </div>
+        <div class="button flex">
+          <div class="inner-button flex">
+            <img src="@/assets/icon-plus.svg" alt="" />
+          </div>
+          <router-link :to="{ name: 'login' }" class="login"
+      >login</router-link
+    >
+        </div>
+        <!-- <div @click="goToRegistration()" class="button flex">
+          <div class="inner-button flex">
+            <img src="@/assets/icon-plus.svg" alt="" />
+          </div>
+          <span>login</span>
+        </div> -->
       </div>
     </div>
     <!-- Invoices -->
@@ -62,7 +76,9 @@ export default {
     toggleFilterMenu() {
       this.filterMenu = !this.filterMenu;
     },
-
+    goToRegistration(){
+      this.$router.push('/login')
+    },
     filteredInvoices(e) {
       if (e.target.innerText === "Clear Filter") {
         this.filteredInvoice = null;
