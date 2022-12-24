@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <h1>sign in to your account</h1>
-  <p><input type="text" placeholder="Email" v-model="email"/></p>
-  <p><input type="password" placeholder="password" v-model="password"/></p>
+    <div class="div">
+        <h1 class="header">Sign in to your account!</h1>
+  <p class="input"><input type="text" placeholder="Email" v-model="email"/></p>
+  <p class="input"><input type="password" placeholder="password" v-model="password"/></p>
   <p v-if="errMsg">{{ errMsg }}</p>
-  <p><button @click="register">submit</button></p>
-  <p><button @click="signInWithGoogle">sign In With Google</button></p>
+  <p ><button class="button" @click="register">submit</button></p>
+  <p ><button  class="button" @click="signInWithGoogle">sign In With Google</button></p>
     </div>
 </template>
 
@@ -51,6 +51,26 @@ const signInWithGoogle=()=>{
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.div{
+    background-color: #1e2139;
+    margin: auto;
+    padding: 50px;
+}
+.header{
+    color:white
+}
+.button{
+    margin-top: 15px;
+    color: white;
+    background-color: #7c5dfa;
+}
+.input{
+    margin-top: 10px;
+border-radius: 15%;
+}
+// .div2{
+//     text-align: center;
+// }
 
 </style>
